@@ -1,6 +1,33 @@
 # pyfdfdsolver
 
-This is a 2D Finite Difference Frequency Domain mode solver with dielectric tensor smoothing for photonic waveguides. 
+This is a 2D Finite Difference Frequency Domain mode solver with dielectric tensor smoothing for photonic waveguides.
+
+## PML boundary
+
+`yee_grid` terminates the simulation domain with a PML (perfectly matched layer), implemented as
+an anisotropic complex coordinate stretch (`calc_pml_tensor`/`_pml_stretch`). Only `fzz` and the
+permeability terms `iGxx`/`iGyy` are stretched -- `fxx`/`fyy` are left untouched; stretching them
+too (the naive continuum tensor-PML rule) corrupts the eigensolver into returning spurious
+near-degenerate modes instead of the true guided mode. Controlled via the `dPML` (grading layer
+thickness, in grid cells), `order`, and `R0` (target reflection coefficient) constructor
+arguments; `dPML=0` disables it (plain open-boundary truncation).
+
+`yee_grid.solve` also passes a fixed-seed `v0` and a widened `ncv` to `scipy.sparse.linalg.eigs`
+so repeated solves of the identical matrix converge to the identical eigenpair (previously
+non-deterministic with the library defaults).
+
+## Tests
+
+```bash
+python -m unittest test_fdfd_2D_solver -v
+```
+
+Validates `yee_grid` directly (no example-script machinery) against published results from
+D. Alexopoulos and T. Kamalakis, *"Implementation of a Finite Difference Frequency Domain Mode
+Solver Incorporating Subpixel Smoothing"* (2025) -- step-index fiber, an air-hole-assisted fiber,
+and a cylindrical hybrid plasmonic waveguide -- plus dedicated coverage of the PML implementation,
+eigensolver determinism, field reconstruction, and the legacy `disk`/`midle_disk`/`inner_disk`
+shape types used by `fdfd_2D.py`'s example structures.
 
 We have implement three different flavors of averaging: 
 - Tensor Averaging 
