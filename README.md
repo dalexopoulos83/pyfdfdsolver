@@ -69,3 +69,8 @@ Bellow we have some more information for the structure parameters that you can t
     ntarget = n1 -> target n effective for eigenproblem solution 
     NN = np.arange(100, 420, 10) -> grid resolution per axis, it starts from 100 to 420 with step 10
     file_name = './results/ms_fiber/ms_fiber' -> file name to save the results
+
+## Citation
+
+DOI: *pending (Zenodo archival)* -- see [CITATION.cff](CITATION.cff) for citation metadata and the
+accompanying paper reference.

@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using the metadata below, and please cite the accompanying paper (see preferred-citation) for the method itself."
+title: "pyfdfdsolver"
+type: software
+authors:
+  - family-names: "Alexopoulos"
+    given-names: "Dimitris"
+repository-code: "https://github.com/dalexopoulos83/pyfdfdsolver"
+license: "GPL-3.0"
+abstract: "A 2D Finite Difference Frequency Domain (FDFD) mode solver for photonic waveguides, with anisotropic subpixel tensor smoothing (Kottke/Johnson-style) and a PML boundary."
+preferred-citation:
+  type: article
+  title: "Implementation of a Finite Difference Frequency Domain Mode Solver Incorporating Subpixel Smoothing"
+  authors:
+    - family-names: "Alexopoulos"
+      given-names: "D."
+    - family-names: "Kamalakis"
+      given-names: "T."
+  year: 2025
