@@ -72,5 +72,9 @@ Bellow we have some more information for the structure parameters that you can t
 
 ## Citation
 
-DOI: *pending (Zenodo archival)* -- see [CITATION.cff](CITATION.cff) for citation metadata and the
-accompanying paper reference.
+If you use this software, please cite the accompanying paper:
+
+> D. Alexopoulos and T. Kamalakis, "Implementation of a Finite Difference Frequency Domain Mode
+> Solver Incorporating Subpixel Smoothing" (2025).
+
+See [CITATION.cff](CITATION.cff) for structured citation metadata.
